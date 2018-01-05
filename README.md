@@ -13,10 +13,30 @@
 | gulp util           | enviroment variables mgr | allows for telling our build task whether we are in dev or production build.                                                                                    |
 | gulp del            | clean task               | takes array of paths, ie build & tmp folders, deletes them. It becomes dependency of gulp build, thus creating new fresh files whenever gulp build is called.   |
 | npm moment            | backend js               | allows for parsing, validating, formatting, manipulating and comparing dates   |
+| npm lifeExpectancy            | backend js               | allows taking input values (dob, gender, country); returns life expectancy value  |
 
 2. Specs
-  * Spec 1: Description, input, output.
-  * Spec 2: Description, input, output.
+  * Spec 1: It takes an input age (in years) and coverts it into seconds
+    * Example Input: 30 years
+    * Example Output: 946707780 seconds
+  * Spec 2: It compares input birthdate (month/day) and calculates the difference (in seconds) between that date and current date.
+    * Example Input: March 10
+    * Example Output: 26,092,800 seconds
+  * Spec 3: It adds the seconds between birthdate and current date to Spec 1 output (in seconds) to create age in years.
+    * Example Input: Age in years = 30; Birthdate = March 10
+    * Example Output: 972,800,580 seconds
+  * Spec 4: It manipulates age data to calculate age in years on 4 different planets: Mercury, Venus, Mars, Jupiter.
+    * Example Input: Age in years = 35;
+    * Example Output:
+  * Spec 5: It pulls life expectancy value from lifeexpectancy npm object based on input variable.
+    * Example Input: Country: 'India', gender: male
+    * Example Output: {Earth: 66.9; Mercury: 278.75 years; Venus: 107.9 years; Mars: 37.18 years; Jupiter: 5.64 years}
+  * Spec 6: It compares life expectancy value from lifeexpectancy npm object based on input variable with current age; and it returns how many Earth years left in users life if current age < expectancy age.
+    * Example Input: Country: 'India', gender: male, age:30
+    * Example Output: 39.9 years
+  * Spec 7: It compares life expectancy value from lifeexpectancy npm object based on input variable with current age; and it returns how many years of 'borrowed time' the user is on.
+    * Example Input: Country: 'India', gender: male, age:75
+    * Example Output: 5.5 years
 
 3. Integration
   * Initial routes or index pages with all dependencies in Controller/index.html head
