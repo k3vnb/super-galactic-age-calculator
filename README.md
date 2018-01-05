@@ -14,6 +14,8 @@
 | gulp del            | clean task               | takes array of paths, ie build & tmp folders, deletes them. It becomes dependency of gulp build, thus creating new fresh files whenever gulp build is called.   |
 | npm moment            | backend js               | allows for parsing, validating, formatting, manipulating and comparing dates   |
 | npm lifeExpectancy            | backend js               | allows taking input values (dob, gender, country); returns life expectancy value  |
+| jasmine           | spec tester              | runs spec tests as defined in spec calc-spec.js file  |
+| karma          | works w/ jasmine in real time browser reference            | runs spec tests on reload automatically  |
 
 2. Specs
   * Spec 1: It takes an input age (in years) and coverts it into seconds
