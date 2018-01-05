@@ -7,6 +7,6 @@ $(document).ready(function(){
     const ageInYears = parseInt($("input#age-entry").val());
     const yourAge = new Person(ageInYears);
 
-    $('#age-in-seconds').empty().append(yourAge.ageInSeconds);
+    $('#age-in-seconds').empty().append(yourAge.ageInSeconds());
   });
 });

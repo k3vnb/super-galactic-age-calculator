@@ -4,9 +4,9 @@ function Person(ageInYears) {
 }
 
 Person.prototype.ageInSeconds = function() {
-  const ageInSeconds = this.ageInYears * 31557600;
-  console.log(ageInSeconds);
-  return ageInSeconds;
+  const thisAgeInSeconds = this.ageInYears * 31557600;
+  console.log(thisAgeInSeconds);
+  return thisAgeInSeconds;
 }
 
 
