@@ -38,7 +38,7 @@
     * Example Input: Country: 'India', gender: male, age:75
     * Example Output: 5.5 years
 
-3. Integration
+<!-- 3. Integration
   * Initial routes or index pages with all dependencies in Controller/index.html head
   * Template/html page for ...
   * Template/html page for ...
@@ -53,4 +53,4 @@
 5. Polish
   * Refactor minor portion of...
   * Delete unused...
-  * Make README awesome
+  * Make README awesome -->
