@@ -13,14 +13,17 @@ function AgeCompare(nowString, birthString) {
   this.birthString = birthString;
 }
 
-AgeCompare.prototype.exactly = function() {
+AgeCompare.prototype.secondsExactly = function() {
   const exactSeconds = moment(this.nowString).diff(this.birthString, 'seconds');
+  return exactSeconds;
+}
+AgeCompare.prototype.daysExactly = function() {
   const exactDays = moment(this.nowString).diff(this.birthString, 'days');
-  const exactWeeks = moment(this.nowString).diff(this.birthString, 'weeks');
-  console.log(exactSeconds);
-  console.log(exactDays);
-  console.log(exactWeeks);
   return exactDays;
+}
+AgeCompare.prototype.weeksExactly = function() {
+  const exactWeeks = moment(this.nowString).diff(this.birthString, 'weeks');
+  return exactWeeks;
 }
 
 

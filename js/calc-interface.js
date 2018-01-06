@@ -1,6 +1,6 @@
 const Person = require('./../js/calc.js').personModule;
 const AgeCompare = require('./../js/calc.js').ageCompareModule;
-const moment = require('moment');
+
 
 
 $(document).ready(function(){
@@ -25,6 +25,8 @@ $(document).ready(function(){
     console.log(birthString);
     console.log(nowString);
     console.log(moment(nowString).diff(birthString, 'seconds'));
-    console.log(userCompare.exactly());
+    $('#exact-second-count').empty().append(userCompare.secondsExactly());
+    $('#exact-day-count').empty().append(userCompare.daysExactly());
+    $('#exact-week-count').empty().append(userCompare.weeksExactly());
   });
 });
