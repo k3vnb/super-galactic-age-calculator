@@ -1,6 +1,5 @@
 function Person(ageInYears) {
   this.ageInYears = ageInYears;
-  console.log(ageInYears);
 }
 
 Person.prototype.ageInSeconds = function() {
@@ -9,12 +8,21 @@ Person.prototype.ageInSeconds = function() {
   return thisAgeInSeconds;
 };
 
-function AgeCompare(now, dateOfBirth) {
-  this.dateOfBirth = dateOfBirth;
-  this.now = now;
-
-  console.log(this.birthMonth, this.birthDay, this.yearBorn, this.now);
+function AgeCompare(nowString, birthString) {
+  this.nowString = nowString;
+  this.birthString = birthString;
 }
+
+AgeCompare.prototype.exactly = function() {
+  const exactSeconds = moment(this.nowString).diff(this.birthString, 'seconds');
+  const exactDays = moment(this.nowString).diff(this.birthString, 'days');
+  const exactWeeks = moment(this.nowString).diff(this.birthString, 'weeks');
+  console.log(exactSeconds);
+  console.log(exactDays);
+  console.log(exactWeeks);
+  return exactDays;
+}
+
 
 
 

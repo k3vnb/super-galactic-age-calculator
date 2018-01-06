@@ -1,7 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 function Person(ageInYears) {
   this.ageInYears = ageInYears;
-  console.log(ageInYears);
 }
 
 Person.prototype.ageInSeconds = function() {
@@ -10,12 +9,21 @@ Person.prototype.ageInSeconds = function() {
   return thisAgeInSeconds;
 };
 
-function AgeCompare(now, dateOfBirth) {
-  this.dateOfBirth = dateOfBirth;
-  this.now = now;
-
-  console.log(this.birthMonth, this.birthDay, this.yearBorn, this.now);
+function AgeCompare(nowString, birthString) {
+  this.nowString = nowString;
+  this.birthString = birthString;
 }
+
+AgeCompare.prototype.exactly = function() {
+  const exactSeconds = moment(this.nowString).diff(this.birthString, 'seconds');
+  const exactDays = moment(this.nowString).diff(this.birthString, 'days');
+  const exactWeeks = moment(this.nowString).diff(this.birthString, 'weeks');
+  console.log(exactSeconds);
+  console.log(exactDays);
+  console.log(exactWeeks);
+  return exactDays;
+}
+
 
 
 
@@ -4586,13 +4594,13 @@ $(document).ready(function(){
     const birthDay = $('#day-born').val();
     const yearBorn = parseInt($('#year-born').val());
     const now = moment();
-    const birthMoment = moment('' + birthMonth + '-' + birthDay + '-' + yearBorn + '').toString();
-    console.log(birthMoment);
-    console.log(now);
-    const day = new Date(yearBorn, birthMonth, birthDay);
-    const dayWrapper = moment(day);
-    const yourExactAge = new AgeCompare(dayWrapper, );
-    console.log(dayWrapper);
+    const nowString = now.toString();
+    const birthString = moment('' + birthMonth + '-' + birthDay + '-' + yearBorn + '').toString();
+    const userCompare = new AgeCompare(nowString, birthString);
+    console.log(birthString);
+    console.log(nowString);
+    console.log(moment(nowString).diff(birthString, 'seconds'));
+    console.log(userCompare.exactly());
   });
 });
 
