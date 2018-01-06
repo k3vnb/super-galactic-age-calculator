@@ -7,6 +7,10 @@ Person.prototype.ageInSeconds = function() {
   const thisAgeInSeconds = this.ageInYears * 31557600;
   console.log(thisAgeInSeconds);
   return thisAgeInSeconds;
+};
+
+function AgeCompare(birthMonth, birthDay, yearBorn) {
+  
 }
 
 
@@ -17,3 +21,4 @@ Person.prototype.ageInSeconds = function() {
 
 
 exports.personModule = Person;
+exports.ageCompareModule = AgeCompare;
