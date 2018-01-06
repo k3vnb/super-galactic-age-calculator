@@ -1,5 +1,7 @@
 const Person = require('./../js/calc.js').personModule;
-
+var moment = require('moment');
+var now = moment();
+console.log(now);
 
 $(document).ready(function(){
   $('form#enter-age').submit(function(event){
