@@ -9,8 +9,11 @@ Person.prototype.ageInSeconds = function() {
   return thisAgeInSeconds;
 };
 
-function AgeCompare(birthMonth, birthDay, yearBorn) {
-  
+function AgeCompare(now, dateOfBirth) {
+  this.dateOfBirth = dateOfBirth;
+  this.now = now;
+
+  console.log(this.birthMonth, this.birthDay, this.yearBorn, this.now);
 }
 
 

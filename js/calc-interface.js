@@ -1,6 +1,7 @@
 const Person = require('./../js/calc.js').personModule;
 const AgeCompare = require('./../js/calc.js').ageCompareModule;
-var moment = require('moment');
+const moment = require('moment');
+
 
 $(document).ready(function(){
   $('form#enter-age').submit(function(event){
@@ -17,6 +18,13 @@ $(document).ready(function(){
     const birthMonth = $('#month-born').val();
     const birthDay = $('#day-born').val();
     const yearBorn = parseInt($('#year-born').val());
-    const yourExactAge = new AgeCompare(birthMonth, birthDay, yearBorn);
+    const now = moment();
+    const birthMoment = moment('' + birthMonth + '-' + birthDay + '-' + yearBorn + '').toString();
+    console.log(birthMoment);
+    console.log(now);
+    const day = new Date(yearBorn, birthMonth, birthDay);
+    const dayWrapper = moment(day);
+    const yourExactAge = new AgeCompare(dayWrapper, );
+    console.log(dayWrapper);
   });
 });
