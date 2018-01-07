@@ -27,9 +27,9 @@ AgeCompare.prototype.weeksExactly = function() {
   return exactWeeks;
 };
 
-function Demographics(country) {
+function Demographics(country, gender) {
   this.country = country;
-  console.log("hi" + this.country);
+  this.gender = gender;
 };
 
 Demographics.prototype.lifeExpectancy = function() {
@@ -217,8 +217,17 @@ Demographics.prototype.lifeExpectancy = function() {
   'Yemen': 65.7,
   'Zambia': 61.8,
   'Zimbabwe': 60.7
-}; return liveExpectancy[countryA];
-
+};
+// return liveExpectancy[countryA];
+ const countryAvg = liveExpectancy[countryA];
+ const genderedAvg = countryAvg * .05;
+ if (this.gender == 'neutral') {
+   return countryAvg;
+ } else if (this.gender == 'male') {
+   return countryAvg - genderedAvg;
+ } else {
+   return countryAvg + genderedAvg;
+ }
 };
 
 
@@ -274,7 +283,7 @@ $(document).ready(function(){
     event.preventDefault();
     const country = $('#country').val();
     const gender = $('#gender').val();
-    const yourDemograph = new Demographics(country);
+    const yourDemograph = new Demographics(country, gender);
     console.log(yourDemograph.lifeExpectancy());
   });
 });

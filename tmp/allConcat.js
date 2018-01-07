@@ -35,7 +35,7 @@ $(document).ready(function(){
     event.preventDefault();
     const country = $('#country').val();
     const gender = $('#gender').val();
-    const yourDemograph = new Demographics(country);
+    const yourDemograph = new Demographics(country, gender);
     console.log(yourDemograph.lifeExpectancy());
   });
 });
