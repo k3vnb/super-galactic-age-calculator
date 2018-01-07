@@ -26,6 +26,10 @@ AgeCompare.prototype.weeksExactly = function() {
   const exactWeeks = moment(this.nowString).diff(this.birthString, 'weeks');
   return exactWeeks;
 };
+AgeCompare.prototype.yearsExactly = function(){
+  const exactYears = moment(this.nowString).diff(this.birthString, 'days') / 365.25;
+  return exactYears;
+}
 AgeCompare.prototype.mercuryYears = function() {
   const mercYears = moment(this.nowString).diff(this.birthString, 'days') / 365.25 / .24;
   return mercYears;
@@ -245,10 +249,14 @@ Demographics.prototype.lifeExpectancy = function() {
    return countryAvg + genderedAvg;
  }
 };
+
 Demographics.prototype.yourTimeLeft = function() {
   return timeLeft;
 }
 
+function LifeLeft(compareArray) {
+  this.compareArray = compareArray;
+}
 
 
 
@@ -264,12 +272,13 @@ Demographics.prototype.yourTimeLeft = function() {
 exports.personModule = Person;
 exports.ageCompareModule = AgeCompare;
 exports.demographicsModule = Demographics;
+exports.lifeLeftModule = LifeLeft;
 
 },{}],2:[function(require,module,exports){
 const Person = require('./../js/calc.js').personModule;
 const AgeCompare = require('./../js/calc.js').ageCompareModule;
 const Demographics = require('./../js/calc.js').demographicsModule;
-
+const LifeLeft = require('./../js/calc.js').lifeLeftModule;
 
 $(document).ready(function(){
   var compareArray = [];
@@ -279,7 +288,6 @@ $(document).ready(function(){
     if (isNaN(ageInYears)) {
       alert("please enter a numeric value");
     }
-    compareArray.push(ageInYears);
     const yourAge = new Person(ageInYears);
     $('#age-in-seconds').empty().append(yourAge.ageInSeconds());
   });
@@ -292,6 +300,7 @@ $(document).ready(function(){
     const nowString = now.toString();
     const birthString = moment('' + birthMonth + '-' + birthDay + '-' + yearBorn + '').toString();
     const userCompare = new AgeCompare(nowString, birthString);
+    compareArray.push(userCompare.yearsExactly());
     console.log('yes' + compareArray);
     console.log(birthString);
     console.log(nowString);
@@ -308,7 +317,15 @@ $(document).ready(function(){
     const yourDemograph = new Demographics(country, gender);
     const yourExpect = yourDemograph.lifeExpectancy();
     compareArray.push(yourExpect);
-    console.log("bbbbb" + compareArray)
+    const countdown = new LifeLeft(compareArray);
+    if (compareArray[0] > compareArray[1]) {
+      console.log('you are on borrowed time');
+    } else if (compareArray[0] < compareArray[1]) {
+      console.log('you got some time left');
+    } else {
+      console.log('hmmm better watch out');
+    }
+    console.log("bbbbb" + compareArray + "cccc")
     console.log(yourDemograph.lifeExpectancy());
   });
   $()

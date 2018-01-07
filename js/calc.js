@@ -25,6 +25,10 @@ AgeCompare.prototype.weeksExactly = function() {
   const exactWeeks = moment(this.nowString).diff(this.birthString, 'weeks');
   return exactWeeks;
 };
+AgeCompare.prototype.yearsExactly = function(){
+  const exactYears = moment(this.nowString).diff(this.birthString, 'days') / 365.25;
+  return exactYears;
+}
 AgeCompare.prototype.mercuryYears = function() {
   const mercYears = moment(this.nowString).diff(this.birthString, 'days') / 365.25 / .24;
   return mercYears;
@@ -244,10 +248,14 @@ Demographics.prototype.lifeExpectancy = function() {
    return countryAvg + genderedAvg;
  }
 };
+
 Demographics.prototype.yourTimeLeft = function() {
   return timeLeft;
 }
 
+function LifeLeft(compareArray) {
+  this.compareArray = compareArray;
+}
 
 
 
@@ -263,3 +271,4 @@ Demographics.prototype.yourTimeLeft = function() {
 exports.personModule = Person;
 exports.ageCompareModule = AgeCompare;
 exports.demographicsModule = Demographics;
+exports.lifeLeftModule = LifeLeft;
