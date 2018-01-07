@@ -327,6 +327,10 @@ $(document).ready(function(){
     $('#exact-second-count').empty().append(userCompare.secondsExactly());
     $('#exact-day-count').empty().append(userCompare.daysExactly());
     $('#exact-week-count').empty().append(userCompare.weeksExactly());
+    $('#merc-stats').empty().append(userCompare.mercuryYears());
+    $('#venus-stats').empty().append(userCompare.venusYears());
+    $('#mars-stats').empty().append(userCompare.marsYears());
+    $('#jupiter-stats').empty().append(userCompare.jupiterYears());
     $('#hidden-div-exact').show(100);
     console.log("merc " + userCompare.mercuryYears() + " ven: " + userCompare.venusYears() + " mar: " + userCompare.marsYears() + " jup: " + userCompare.jupiterYears());
   });

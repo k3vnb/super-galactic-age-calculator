@@ -9,7 +9,7 @@ body {
   margin-top: 0;
 }
 .container {
-  background-color: white;
+  background-color: #eab7b791;
   padding: 4%;
   height: 100vh;
 }
@@ -19,6 +19,19 @@ body {
 #hidden-div-exact {
   display: none;
 }
-.hidden-div-two img {
-  float: left;
+.planet {
+  display: flex
+}
+.md-planet {
+  height: 300px;
+}
+.xsm-planet {
+  height: 100px;
+}
+.sm-planet {
+  height: 175px;
+}
+.lg-planet {
+  height: 600px;
+  width: 800px;
 }
