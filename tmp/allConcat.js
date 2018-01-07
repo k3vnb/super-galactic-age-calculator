@@ -1,5 +1,7 @@
 const Person = require('./../js/calc.js').personModule;
 const AgeCompare = require('./../js/calc.js').ageCompareModule;
+const Demographics = require('./../js/calc.js').demographicsModule;
+
 
 
 
@@ -33,6 +35,7 @@ $(document).ready(function(){
     event.preventDefault();
     const country = $('#country').val();
     const gender = $('#gender').val();
-    console.log(country + gender);
-  })
+    const yourDemograph = new Demographics(country);
+    console.log(yourDemograph.lifeExpectancy());
+  });
 });
