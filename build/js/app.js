@@ -287,19 +287,20 @@ $(document).ready(function(){
     const ageInYears = parseInt($("input#age-entry").val());
     if (isNaN(ageInYears)) {
       alert("please enter a numeric value");
+    } else {
+      const yourAge = new Person(ageInYears);
+      const country = $('#country').val();
+      const gender = $('#gender').val();
+      const yourDemograph = new Demographics(country, gender);
+      const yourExpect = yourDemograph.lifeExpectancy();
+      compareArray.push(yourExpect);
+      const countdown = new LifeLeft(compareArray);
+      console.log("bbbbb" + compareArray + "cccc")
+      console.log(yourDemograph.lifeExpectancy());
+      $('#intro').hide(100);
+      $('#hidden-div-1').show(100);
+      $('#age-in-seconds').empty().append(yourAge.ageInSeconds());
     }
-    const yourAge = new Person(ageInYears);
-    const country = $('#country').val();
-    const gender = $('#gender').val();
-    const yourDemograph = new Demographics(country, gender);
-    const yourExpect = yourDemograph.lifeExpectancy();
-    compareArray.push(yourExpect);
-    const countdown = new LifeLeft(compareArray);
-    console.log("bbbbb" + compareArray + "cccc")
-    console.log(yourDemograph.lifeExpectancy());
-    $('#intro').hide(100);
-    $('#hidden-div-1').show(100);
-    $('#age-in-seconds').empty().append(yourAge.ageInSeconds());
   });
   $('form#exact-age').submit(function(event){
     event.preventDefault();
@@ -322,9 +323,11 @@ $(document).ready(function(){
     console.log(birthString);
     console.log(nowString);
     console.log(moment(nowString).diff(birthString, 'seconds'));
+    $('.section-two').hide(100);
     $('#exact-second-count').empty().append(userCompare.secondsExactly());
     $('#exact-day-count').empty().append(userCompare.daysExactly());
     $('#exact-week-count').empty().append(userCompare.weeksExactly());
+    $('#hidden-div-exact').show(100);
     console.log("merc " + userCompare.mercuryYears() + " ven: " + userCompare.venusYears() + " mar: " + userCompare.marsYears() + " jup: " + userCompare.jupiterYears());
   });
 

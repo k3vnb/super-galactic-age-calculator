@@ -16,3 +16,9 @@ body {
 #hidden-div-1 {
   display: none;
 }
+#hidden-div-exact {
+  display: none;
+}
+.hidden-div-two img {
+  float: left;
+}
