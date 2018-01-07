@@ -12,6 +12,16 @@ $(document).ready(function(){
       alert("please enter a numeric value");
     }
     const yourAge = new Person(ageInYears);
+    const country = $('#country').val();
+    const gender = $('#gender').val();
+    const yourDemograph = new Demographics(country, gender);
+    const yourExpect = yourDemograph.lifeExpectancy();
+    compareArray.push(yourExpect);
+    const countdown = new LifeLeft(compareArray);
+    console.log("bbbbb" + compareArray + "cccc")
+    console.log(yourDemograph.lifeExpectancy());
+    $('#intro').hide(100);
+    $('#hidden-div-1').show(100);
     $('#age-in-seconds').empty().append(yourAge.ageInSeconds());
   });
   $('form#exact-age').submit(function(event){
@@ -24,6 +34,13 @@ $(document).ready(function(){
     const birthString = moment('' + birthMonth + '-' + birthDay + '-' + yearBorn + '').toString();
     const userCompare = new AgeCompare(nowString, birthString);
     compareArray.push(userCompare.yearsExactly());
+    if (compareArray[0] < compareArray[1]) {
+      console.log('you are on borrowed time');
+    } else if (compareArray[0] > compareArray[1]) {
+      console.log('you got some time left');
+    } else {
+      console.log('hmmm better watch out');
+    }
     console.log('yes' + compareArray);
     console.log(birthString);
     console.log(nowString);
@@ -33,23 +50,6 @@ $(document).ready(function(){
     $('#exact-week-count').empty().append(userCompare.weeksExactly());
     console.log("merc " + userCompare.mercuryYears() + " ven: " + userCompare.venusYears() + " mar: " + userCompare.marsYears() + " jup: " + userCompare.jupiterYears());
   });
-  $('form#demographic-select').submit(function(event){
-    event.preventDefault();
-    const country = $('#country').val();
-    const gender = $('#gender').val();
-    const yourDemograph = new Demographics(country, gender);
-    const yourExpect = yourDemograph.lifeExpectancy();
-    compareArray.push(yourExpect);
-    const countdown = new LifeLeft(compareArray);
-    if (compareArray[0] > compareArray[1]) {
-      console.log('you are on borrowed time');
-    } else if (compareArray[0] < compareArray[1]) {
-      console.log('you got some time left');
-    } else {
-      console.log('hmmm better watch out');
-    }
-    console.log("bbbbb" + compareArray + "cccc")
-    console.log(yourDemograph.lifeExpectancy());
-  });
-  $()
+
+
 });
