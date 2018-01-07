@@ -70,6 +70,12 @@ $(document).ready(function(){
     $('#exact-day-count').empty().append(userCompare.daysExactly());
     $('#exact-week-count').empty().append(userCompare.weeksExactly());
   });
+  $('form#demographic-select').submit(function(event){
+    event.preventDefault();
+    const country = $('#country').val();
+    const gender = $('#gender').val();
+    console.log(country + gender);
+  })
 });
 
 },{"./../js/calc.js":1}]},{},[2]);
