@@ -221,7 +221,6 @@
           <form class="more-exact" id="exact-age" action="index.html" method="post">
             <label for="">Month Born</label>
             <select id='month-born'>
-              <option value=''>--Select Month--</option>
               <option value='1'>January</option>
               <option value='2'>February</option>
               <option value='3'>March</option>
@@ -281,6 +280,7 @@
           <div class="earth planet">
             <img class="md-planet" src="img/earth.png" alt="">
             <p>Cool! You are exactly <span id="exact-second-count"></span> seconds old (give or take a few)<br> That's about <span id="exact-day-count"></span> days. Or you might say you've been breathing air on this planet for <span id="exact-week-count"></span> weeks!</p>
+
           </div>
           <div class="mercury planet">
             <p>On Mercury you would be <span id="merc-stats"></span> years old</p>
@@ -299,16 +299,11 @@
             <p>On Jupiter you would be <span id="jupiter-stats"></span> years old</p>
           </div>
         </div>
+        <div class="display-card">
+          <p id="life-expect"></p>
+        </div>
       </div>
-      <div class="time-to-go">
-        <p>Wow, looks like you've only got about <span id="to-go-time"</span> years to go!</p>
-      </div>
-      <div class="borrowed-time">
-        <p>Wow, looks like you're on borrowed time, you were supposed to go about <span id="to-go-time-2"</span> years ago</p>
-      </div>
-      <div class="time-is-now">
-        <p>Hey nice job you made it to your expected life span. Good luck!</p>
-      </div>
+
     </div>
   </body>
 </html>

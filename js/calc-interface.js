@@ -4,7 +4,7 @@ const Demographics = require('./../js/calc.js').demographicsModule;
 const LifeLeft = require('./../js/calc.js').lifeLeftModule;
 
 $(document).ready(function(){
-  var compareArray = [];
+  const compareArray = [];
   $('form#enter-age').submit(function(event){
     event.preventDefault();
     const ageInYears = parseInt($("input#age-entry").val());
@@ -35,28 +35,26 @@ $(document).ready(function(){
     const birthString = moment('' + birthMonth + '-' + birthDay + '-' + yearBorn + '').toString();
     const userCompare = new AgeCompare(nowString, birthString);
     compareArray.push(userCompare.yearsExactly());
-    if (compareArray[0] < compareArray[1]) {
-      console.log('you are on borrowed time');
-    } else if (compareArray[0] > compareArray[1]) {
-      console.log('you got some time left');
+    console.log("you" + compareArray);
+    if (isNaN(yearBorn)) {
+      alert("please enter a numeric value");
+    } else if (yearBorn > 2017){
+      alert("please don't lie about your birth year");
     } else {
-      console.log('hmmm better watch out');
-    }
-    console.log('yes' + compareArray);
-    console.log(birthString);
-    console.log(nowString);
-    console.log(moment(nowString).diff(birthString, 'seconds'));
-    $('.section-two').hide(100);
-    $('#exact-second-count').empty().append(userCompare.secondsExactly());
-    $('#exact-day-count').empty().append(userCompare.daysExactly());
-    $('#exact-week-count').empty().append(userCompare.weeksExactly());
-    $('#merc-stats').empty().append(userCompare.mercuryYears());
-    $('#venus-stats').empty().append(userCompare.venusYears());
-    $('#mars-stats').empty().append(userCompare.marsYears());
-    $('#jupiter-stats').empty().append(userCompare.jupiterYears());
-    $('#hidden-div-exact').show(100);
-    console.log("merc " + userCompare.mercuryYears() + " ven: " + userCompare.venusYears() + " mar: " + userCompare.marsYears() + " jup: " + userCompare.jupiterYears());
-  });
-
+      const userLifeExp = new LifeLeft(compareArray);
+      console.log(moment(nowString).diff(birthString, 'seconds'));
+      $('.section-two').hide(100);
+      $('#exact-second-count').empty().append(userCompare.secondsExactly());
+      $('#exact-day-count').empty().append(userCompare.daysExactly());
+      $('#exact-week-count').empty().append(userCompare.weeksExactly());
+      $('#merc-stats').empty().append(userCompare.mercuryYears());
+      $('#venus-stats').empty().append(userCompare.venusYears());
+      $('#mars-stats').empty().append(userCompare.marsYears());
+      $('#jupiter-stats').empty().append(userCompare.jupiterYears());
+      $('#life-expect').empty().append(userLifeExp.difference());
+      $('#hidden-div-exact').show(100);
+      console.log("merc " + userCompare.mercuryYears() + " ven: " + userCompare.venusYears() + " mar: " + userCompare.marsYears() + " jup: " + userCompare.jupiterYears());
+    };
+});
 
 });

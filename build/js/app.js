@@ -30,28 +30,28 @@ AgeCompare.prototype.weeksExactly = function() {
 AgeCompare.prototype.yearsExactly = function(){
   const exactYears = moment(this.nowString).diff(this.birthString, 'days') / 365.25;
   return exactYears;
-}
+};
 AgeCompare.prototype.mercuryYears = function() {
   const mercYears = moment(this.nowString).diff(this.birthString, 'days') / 365.25 / .24;
   return mercYears;
-}
+};
 AgeCompare.prototype.venusYears = function() {
   const venusYears = moment(this.nowString).diff(this.birthString, 'days') / 365.25 / .62;
   return venusYears;
-}
+};
 AgeCompare.prototype.marsYears = function() {
   const marsYears = moment(this.nowString).diff(this.birthString, 'days') / 365.25 / 1.88;
   return marsYears;
-}
+};
 AgeCompare.prototype.jupiterYears = function() {
   const jupiterYears = moment(this.nowString).diff(this.birthString, 'days') / 365.25 / 11.86;
   return jupiterYears;
-}
+};
 
 function Demographics(country, gender) {
   this.country = country;
   this.gender = gender;
-};
+}
 
 Demographics.prototype.lifeExpectancy = function() {
   const countryA = this.country;
@@ -251,13 +251,30 @@ Demographics.prototype.lifeExpectancy = function() {
  }
 };
 
-Demographics.prototype.yourTimeLeft = function() {
-  return timeLeft;
-}
-
 function LifeLeft(compareArray) {
   this.compareArray = compareArray;
 }
+
+LifeLeft.prototype.difference = function() {
+  if (this.compareArray[0] < this.compareArray[1]) {
+    console.log("hey");
+    const returnVal = this.compareArray[1] - this.compareArray[0];
+    const returnMerc = returnVal / .24;
+    const returnVen = returnVal / .62;
+    const returnMar = returnVal / 1.88;
+    const returnJup = returnVal / 11.68;
+    return "Warning! Our records indicate that, statistically, you are on borrowed time. You should have kicked it " + returnVal + " years ago on Earth. You'd have been a goner " + returnMerc + " years ago on Mercury, and " + returnVen + " years on Venus. You'd have breathed your last breathe " + returnMar + " & " + returnJup + " years ago on Mars and Jupiter, respectively, assuming you had breath to breathe. We hear its smoggy on Jupiter."
+  } else if (this.compareArray[0] > this.compareArray[1]) {
+    const returnVal = this.compareArray[0] - this.compareArray[1];
+    const returnMerc = returnVal / .24;
+    const returnVen = returnVal / .62;
+    const returnMar = returnVal / 1.88;
+    const returnJup = returnVal / 11.68;
+    return "Our records indicate that, statistically, you are likely to die in " + returnVal + " years. This is a part of the human condition, and indeed a pre-condition of life itself. On Venus, all other things being equal, we expect your demise in " + returnVen + " years. Mars, " + returnMar + " years. On Jupiter, only " + returnJup + " years.  To optimize existence, we'd recommend going to Mercury, where you can live sweet life for another " + returnMerc + " years. Bring sunscreen."
+  } else {
+     return "Looks like time has caught up to you, congrats on living up to you're statistical life expectancy. Try not to die, if you live longer it brings up the whole life expectancy average for the rest of us. If you do go to Mars, bring a water bottle.";
+  };
+};
 
 
 
@@ -282,7 +299,7 @@ const Demographics = require('./../js/calc.js').demographicsModule;
 const LifeLeft = require('./../js/calc.js').lifeLeftModule;
 
 $(document).ready(function(){
-  var compareArray = [];
+  const compareArray = [];
   $('form#enter-age').submit(function(event){
     event.preventDefault();
     const ageInYears = parseInt($("input#age-entry").val());
@@ -313,29 +330,27 @@ $(document).ready(function(){
     const birthString = moment('' + birthMonth + '-' + birthDay + '-' + yearBorn + '').toString();
     const userCompare = new AgeCompare(nowString, birthString);
     compareArray.push(userCompare.yearsExactly());
-    if (compareArray[0] < compareArray[1]) {
-      console.log('you are on borrowed time');
-    } else if (compareArray[0] > compareArray[1]) {
-      console.log('you got some time left');
+    console.log("you" + compareArray);
+    if (isNaN(yearBorn)) {
+      alert("please enter a numeric value");
+    } else if (yearBorn > 2017){
+      alert("please don't lie about your birth year");
     } else {
-      console.log('hmmm better watch out');
-    }
-    console.log('yes' + compareArray);
-    console.log(birthString);
-    console.log(nowString);
-    console.log(moment(nowString).diff(birthString, 'seconds'));
-    $('.section-two').hide(100);
-    $('#exact-second-count').empty().append(userCompare.secondsExactly());
-    $('#exact-day-count').empty().append(userCompare.daysExactly());
-    $('#exact-week-count').empty().append(userCompare.weeksExactly());
-    $('#merc-stats').empty().append(userCompare.mercuryYears());
-    $('#venus-stats').empty().append(userCompare.venusYears());
-    $('#mars-stats').empty().append(userCompare.marsYears());
-    $('#jupiter-stats').empty().append(userCompare.jupiterYears());
-    $('#hidden-div-exact').show(100);
-    console.log("merc " + userCompare.mercuryYears() + " ven: " + userCompare.venusYears() + " mar: " + userCompare.marsYears() + " jup: " + userCompare.jupiterYears());
-  });
-
+      const userLifeExp = new LifeLeft(compareArray);
+      console.log(moment(nowString).diff(birthString, 'seconds'));
+      $('.section-two').hide(100);
+      $('#exact-second-count').empty().append(userCompare.secondsExactly());
+      $('#exact-day-count').empty().append(userCompare.daysExactly());
+      $('#exact-week-count').empty().append(userCompare.weeksExactly());
+      $('#merc-stats').empty().append(userCompare.mercuryYears());
+      $('#venus-stats').empty().append(userCompare.venusYears());
+      $('#mars-stats').empty().append(userCompare.marsYears());
+      $('#jupiter-stats').empty().append(userCompare.jupiterYears());
+      $('#life-expect').empty().append(userLifeExp.difference());
+      $('#hidden-div-exact').show(100);
+      console.log("merc " + userCompare.mercuryYears() + " ven: " + userCompare.venusYears() + " mar: " + userCompare.marsYears() + " jup: " + userCompare.jupiterYears());
+    };
+});
 
 });
 
