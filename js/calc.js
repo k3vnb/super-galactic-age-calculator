@@ -1,3 +1,4 @@
+
 function Person(ageInYears) {
   this.ageInYears = ageInYears;
 };
@@ -13,22 +14,37 @@ function AgeCompare(nowString, birthString) {
   this.birthString = birthString;
 };
 
-AgeCompare.prototype.timeExactly = function() {
-	const timeArr = [];
+AgeCompare.prototype.secondsExactly = function() {
   const exactSeconds = moment(this.nowString).diff(this.birthString, 'seconds');
+  return exactSeconds;
+};
+AgeCompare.prototype.daysExactly = function() {
   const exactDays = moment(this.nowString).diff(this.birthString, 'days');
+  return exactDays;
+};
+AgeCompare.prototype.weeksExactly = function() {
   const exactWeeks = moment(this.nowString).diff(this.birthString, 'weeks');
+  return exactWeeks;
+};
+AgeCompare.prototype.yearsExactly = function(){
   const exactYears = moment(this.nowString).diff(this.birthString, 'days') / 365.25;
-  return timeArr.push[exactSeconds, exactDays, exactWeeks, exactYears];
+  return exactYears;
 }
-
-AgeCompare.prototype.planetYears = function() {
-	const planetYearArr = [],
+AgeCompare.prototype.mercuryYears = function() {
   const mercYears = moment(this.nowString).diff(this.birthString, 'days') / 365.25 / .24;
+  return mercYears;
+}
+AgeCompare.prototype.venusYears = function() {
   const venusYears = moment(this.nowString).diff(this.birthString, 'days') / 365.25 / .62;
+  return venusYears;
+}
+AgeCompare.prototype.marsYears = function() {
   const marsYears = moment(this.nowString).diff(this.birthString, 'days') / 365.25 / 1.88;
+  return marsYears;
+}
+AgeCompare.prototype.jupiterYears = function() {
   const jupiterYears = moment(this.nowString).diff(this.birthString, 'days') / 365.25 / 11.86;
-  return planetYearArr.push[mercYears, venusYears, marsYears, jupiterYears];
+  return jupiterYears;
 }
 
 function Demographics(country, gender) {
