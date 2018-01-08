@@ -34,7 +34,7 @@ $(document).ready(function(){
     const nowString = now.toString();
     const birthString = moment('' + birthMonth + '-' + birthDay + '-' + yearBorn + '').toString();
     const userCompare = new AgeCompare(nowString, birthString);
-    compareArray.push(userCompare.yearsExactly());
+    compareArray.push(userCompare.timeExactly[3]());
     if (compareArray[0] < compareArray[1]) {
       console.log('you are on borrowed time');
     } else if (compareArray[0] > compareArray[1]) {
@@ -47,13 +47,13 @@ $(document).ready(function(){
     console.log(nowString);
     console.log(moment(nowString).diff(birthString, 'seconds'));
     $('.section-two').hide(100);
-    $('#exact-second-count').empty().append(userCompare.secondsExactly());
-    $('#exact-day-count').empty().append(userCompare.daysExactly());
-    $('#exact-week-count').empty().append(userCompare.weeksExactly());
-    $('#merc-stats').empty().append(userCompare.mercuryYears());
-    $('#venus-stats').empty().append(userCompare.venusYears());
-    $('#mars-stats').empty().append(userCompare.marsYears());
-    $('#jupiter-stats').empty().append(userCompare.jupiterYears());
+    $('#exact-second-count').empty().append(userCompare.timeExactly[0]());
+    $('#exact-day-count').empty().append(userCompare.timeExactly[1]());
+    $('#exact-week-count').empty().append(userCompare.timeExactly[2]());
+    $('#merc-stats').empty().append(userCompare.planetYears[0]());
+    $('#venus-stats').empty().append(userCompare.planetYears[1]());
+    $('#mars-stats').empty().append(userCompare.planetYears[2]());
+    $('#jupiter-stats').empty().append(userCompare.planetYears[3]());
     $('#hidden-div-exact').show(100);
     console.log("merc " + userCompare.mercuryYears() + " ven: " + userCompare.venusYears() + " mar: " + userCompare.marsYears() + " jup: " + userCompare.jupiterYears());
   });
