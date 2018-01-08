@@ -1,5 +1,5 @@
 body {
-  background-image: url(../img/stars.jpg);
+  background-image: url(../img/galaxy.jpg);
   background-position: center;
   background-repeat: repeat-y;
   background-size: contain;
@@ -15,7 +15,7 @@ body {
   position: fixed;
 }
 .container {
-  background-color: #eab7b791;
+  /* background-color: #eab7b791; */
   padding: 250px 4% 4%;
   min-height: 100vh;
 }
@@ -56,6 +56,7 @@ body {
 }
 .first-response {
   font-size: 30px;
+  color: white;
   font-weight: bold;
   text-align: center;
 }

@@ -333,7 +333,7 @@ $(document).ready(function(){
     console.log("you" + compareArray);
     if (isNaN(yearBorn)) {
       alert("please enter a numeric value");
-    } else if (yearBorn > 2017){
+    } else if (yearBorn > 2017 || yearBorn < 500){
       alert("please don't lie about your birth year");
     } else {
       const userLifeExp = new LifeLeft(compareArray);
@@ -348,6 +348,7 @@ $(document).ready(function(){
       $('#jupiter-stats').empty().append(userCompare.jupiterYears());
       $('#life-expect').empty().append(userLifeExp.difference());
       $('#hidden-div-exact').show(100);
+      $('.first-response').hide();
       console.log("merc " + userCompare.mercuryYears() + " ven: " + userCompare.venusYears() + " mar: " + userCompare.marsYears() + " jup: " + userCompare.jupiterYears());
     };
 });

@@ -1,10 +1,13 @@
 const Person = require('./../js/calc.js').personModule;
 const AgeCompare = require('./../js/calc.js').ageCompareModule;
-var moment = require('moment');
+const Demographics = require('./../js/calc.js').demographicsModule;
+const LifeLeft = require('./../js/calc.js').lifeLeftModule;
+const moment = require('./../bower_components/moment/moment.js');
 
 describe('Person', function() {
 
   it('multiplies an input age in years by the amount of seconds a 325.25 day year, ie 31557600 seconds', function() {
+    const moment = require('./../bower_components/moment/moment.js');
     const user1 = new Person(1)
     const user2 = new Person(44)
     const user3 = new Person("hello");
@@ -15,7 +18,6 @@ describe('Person', function() {
 
 });
 describe('AgeCompare', function() {
-
   it('calculates the difference between a birthdate and now in seconds, days, and weeks', function() {
     const birthday = moment('12-02-1990').toString();
     const nowTest = moment('01-06-2018').toString();
