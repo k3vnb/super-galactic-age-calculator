@@ -1,21 +1,43 @@
+# Galactic Age Calculator
+### This is a demo project for calculating age and life-expectancy on various planets. 1/7/17
+### by **Kevin Boyle**
+
+## Description
+
+_Users will enter their age and demographic information and learn their ages in seconds, weeks, months, as well as their age on Mercury, Venus, Mars, and Jupiter. It can be found at https://lemurriot.github.io/super-galactic-age-calculator/ ._
+
+
 ## Planning
 
 1. Configuration/dependencies
-| Name                | Included at              | Description                                                                                                                                                     |
-|---------------------|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| npm                 | project root             | creates manifest file, storing necessary 3rd party packages.                                                                                                    |
-| gulp                | project root             | optimizes code & pkgs code into browser-ready format. Creates node_modules folder & is in charge of using other npm pkgs.                                       |
-| browserify          | gulp                     | translates 'require' & 'exports' keywords - when called it bundles front end scripts (which are linked to back end) and creates app.js file in build/js folder. |
-| vinyl-source-stream | gulp                     | assists in bringing files into pipeline structure                                                                                                               |
-| gulp-concat         | gulp                     | Consolidates multiple JS files into one, decreasing load-time. Pushing all JS into app.js file. It is a dependency of jsBrowserify.                             |
-| minify              | gulp                     | optimizes scripts by removing unnecessary characters. jsBrowserify (and thus concat) become dependencies of minify.                                             |
-| gulp build          | build task               | specifies top level task (minify scripts or jsBrowserify), as each has its own dependency chain. It won't minify scripts unless we call gulp build --production |
-| gulp util           | enviroment variables mgr | allows for telling our build task whether we are in dev or production build.                                                                                    |
-| gulp del            | clean task               | takes array of paths, ie build & tmp folders, deletes them. It becomes dependency of gulp build, thus creating new fresh files whenever gulp build is called.   |
-| npm moment            | backend js               | allows for parsing, validating, formatting, manipulating and comparing dates   |
-| npm lifeExpectancy            | backend js               | allows taking input values (dob, gender, country); returns life expectancy value  |
-| jasmine           | spec tester              | runs spec tests as defined in spec calc-spec.js file  |
-| karma          | works w/ jasmine in real time browser reference            | runs spec tests on reload automatically  |
+**Name**|**Included At**|**Description**
+-----|-----|-----
+npm|project root  |creates manifest file, storing necessary 3rd party packages.
+gulp |project root |optimizes code & pkgs code into browser-ready
+format. Creates node modules folder & is in charge of using other npm
+pkgs.
+browserify|gulp|translates 'require' & 'exports' keywords - when
+called it bundles front end scripts (which are linked to back end) and
+creates app.js file in build/js folder.
+vinyl-source-stream|gulp|assists in bringing files into pipeline structure
+gulp-concat|gulp|consolidates multiple JS files into one, decreasing
+load-time. Pushing all JS into app.js file. It is a dependency of
+jsBrowserify.
+minify|gulp  |optimizes scripts by removing unnecessary characters.
+jsBrowserify (and thus concat) become dependencies of minify.
+gulp build|gulp > build task|specifies top level task (minify scripts
+or jsBrowserify), as each has its own dependency chain. It won't
+minify scripts unless we call gulp build --production
+gulp util|gulp > enviroment variables mgr|allows for telling our build
+task whether we are in dev or production build.
+gulp del|gulp > clean task|takes array of paths, ie build & tmp
+folders, deletes them. It becomes dependency of gulp build, thus
+creating new fresh files whenever gulp build is called.
+npm moment|backend js|allows for parsing, validating, formatting,
+manipulating and comparing dates
+jasmine|spec tester|runs spec tests as defined in spec calc-spec.js file
+karma|works w/ jasmine in real time browser reference |runs spec tests
+on reload automatically
 
 2. Specs
   * Spec 1: It takes an input age (in years) and coverts it into seconds
@@ -37,4 +59,18 @@
     * Example Input: Country: 'India', gender: male, age:75
     * Example Output: 5.5 years
 
-3. With more time, a sleeker and more entertaining UI would be developed with solid voice and thematic elements.
+3. With more time, a sleeker and more entertaining UI would be developed with solid voice and thematic elements. Many aspects of logic can be made DRY-er with more time, and syntax of ES6 can be implemented for better consistency and visualization of logical flow.
+
+## Support and contact details
+
+_Please contact Kevin Boyle at papershack@gmail.com with any questions_
+
+## Technologies Used
+
+_Primarily HTML, CSS, Sass and Bootstrap Ver. 4.0.0beta.2_
+
+### License
+
+*Available for fair use by all under Creative Commons License*
+
+Copyright (c) 2017 **_Kevin Boyle_**

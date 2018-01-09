@@ -18,8 +18,6 @@ $(document).ready(function(){
       const yourExpect = yourDemograph.lifeExpectancy();
       compareArray.push(yourExpect);
       const countdown = new LifeLeft(compareArray);
-      console.log("bbbbb" + compareArray + "cccc")
-      console.log(yourDemograph.lifeExpectancy());
       $('#intro').hide(100);
       $('#hidden-div-1').show(100);
       $('#age-in-seconds').empty().append(yourAge.ageInSeconds());
@@ -35,14 +33,12 @@ $(document).ready(function(){
     const birthString = moment('' + birthMonth + '-' + birthDay + '-' + yearBorn + '').toString();
     const userCompare = new AgeCompare(nowString, birthString);
     compareArray.push(userCompare.yearsExactly());
-    console.log("you" + compareArray);
     if (isNaN(yearBorn)) {
       alert("please enter a numeric value");
     } else if (yearBorn > 2017 || yearBorn < 500){
       alert("please don't lie about your birth year");
     } else {
       const userLifeExp = new LifeLeft(compareArray);
-      console.log(moment(nowString).diff(birthString, 'seconds'));
       $('.section-two').hide(100);
       $('#exact-second-count').empty().append(userCompare.secondsExactly());
       $('#exact-day-count').empty().append(userCompare.daysExactly());
@@ -54,8 +50,6 @@ $(document).ready(function(){
       $('#life-expect').empty().append(userLifeExp.difference());
       $('#hidden-div-exact').show(100);
       $('.first-response').hide();
-      console.log("merc " + userCompare.mercuryYears() + " ven: " + userCompare.venusYears() + " mar: " + userCompare.marsYears() + " jup: " + userCompare.jupiterYears());
     };
-});
-
+  });
 });

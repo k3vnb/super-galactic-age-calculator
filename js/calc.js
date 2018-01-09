@@ -1,7 +1,7 @@
 
 function Person(ageInYears) {
   this.ageInYears = ageInYears;
-};
+}
 
 Person.prototype.ageInSeconds = function() {
   const thisAgeInSeconds = this.ageInYears * 31557600;
@@ -12,7 +12,7 @@ Person.prototype.ageInSeconds = function() {
 function AgeCompare(nowString, birthString) {
   this.nowString = nowString;
   this.birthString = birthString;
-};
+}
 
 AgeCompare.prototype.secondsExactly = function() {
   const exactSeconds = moment(this.nowString).diff(this.birthString, 'seconds');
@@ -260,17 +260,17 @@ LifeLeft.prototype.difference = function() {
     const returnVen = returnVal / .62;
     const returnMar = returnVal / 1.88;
     const returnJup = returnVal / 11.68;
-    return "Warning! Our records indicate that, statistically, you are on borrowed time. You should have kicked it " + returnVal + " years ago on Earth. You'd have been a goner " + returnMerc + " years ago on Mercury, and " + returnVen + " years on Venus. You'd have breathed your last breathe " + returnMar + " & " + returnJup + " years ago on Mars and Jupiter, respectively, assuming you had breath to breathe. We hear its smoggy on Jupiter."
+    return "Warning! Our records indicate that, statistically, you are on borrowed time. You should have kicked it " + returnVal + " years ago on Earth. You'd have been a goner " + returnMerc + " years ago on Mercury, and " + returnVen + " years on Venus. You'd have breathed your last breathe " + returnMar + " & " + returnJup + " years ago on Mars and Jupiter, respectively, assuming you had breath to breathe. We hear its smoggy on Jupiter.";
   } else if (this.compareArray[0] > this.compareArray[1]) {
     const returnVal = this.compareArray[0] - this.compareArray[1];
     const returnMerc = returnVal / .24;
     const returnVen = returnVal / .62;
     const returnMar = returnVal / 1.88;
     const returnJup = returnVal / 11.68;
-    return "Our records indicate that, statistically, you are likely to die in " + returnVal + " years. This is a part of the human condition, and indeed a pre-condition of life itself. On Venus, all other things being equal, we expect your demise in " + returnVen + " years. Mars, " + returnMar + " years. On Jupiter, only " + returnJup + " years.  To optimize existence, we'd recommend going to Mercury, where you can live sweet life for another " + returnMerc + " years. Bring sunscreen."
+    return "Our records indicate that, statistically, you are likely to die in " + returnVal + " years. This is a part of the human condition, and indeed a pre-condition of life itself. On Venus, all other things being equal, we expect your demise in " + returnVen + " years. Mars, " + returnMar + " years. On Jupiter, only " + returnJup + " years.  To optimize existence, we'd recommend going to Mercury, where you can live sweet life for another " + returnMerc + " years. Bring sunscreen.";
   } else {
      return "Looks like time has caught up to you, congrats on living up to you're statistical life expectancy. Try not to die, if you live longer it brings up the whole life expectancy average for the rest of us. If you do go to Mars, bring a water bottle.";
-  };
+  }
 };
 
 
