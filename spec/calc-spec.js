@@ -27,7 +27,7 @@ describe('AgeCompare', function() {
     expect(user1.weeksExactly()).toEqual(1417);
 
   });
-  it('calculates the difference between a user input birthdate and a later date representing now in seconds, days, and weeks', function() {
+  it('calculates the difference between a user input birthdate and a later date representing now and returns the user age on planets Mercury, Venus, Mars, Jupiter', function() {
     const birthday = '12-02-1990';
     const nowTest = '01-31-2018';
     const user1 = new AgeCompare(nowTest, birthday)
@@ -35,7 +35,30 @@ describe('AgeCompare', function() {
     expect(user1.venusYears()).toEqual(43.8144443708463);
     expect(user1.marsYears()).toEqual(14.44944442017272);
     expect(user1.jupiterYears()).toEqual(2.290468424108323);
+  });
 
+});
+
+describe('Demographics', function() {
+
+  it('retrieves life expectancy for user according to country', function() {
+    const country = 'Italy';
+    const gender = 'neutral';
+    const user1 = new Demographics(country, gender)
+    expect(user1.lifeExpectancy()).toBe(82.7);
+
+  });
+  it('retrieves life expectancy for user according to country for females', function() {
+    const country = 'Zimbabwe';
+    const gender = 'female';
+    const user1 = new Demographics(country, gender)
+    expect(user1.lifeExpectancy()).toBe(63.735);
+  });
+  it('retrieves life expectancy for user according to country for males', function() {
+    const country = 'Lebanon';
+    const gender = 'male';
+    const user1 = new Demographics(country, gender)
+    expect(user1.lifeExpectancy()).toBe(71.155);
   });
 
 });

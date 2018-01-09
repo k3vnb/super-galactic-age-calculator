@@ -54,7 +54,6 @@ function Demographics(country, gender) {
 
 Demographics.prototype.lifeExpectancy = function() {
   const countryA = this.country;
-  console.log("ye" + countryA);
   const liveExpectancy = {
   	'Afghanistan': 60.5,
     'Albania': 77.8,

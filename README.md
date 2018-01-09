@@ -25,31 +25,16 @@
     * Example Input: March 10, 1990
     * Example Output: 878,213,049 seconds
   * Spec 3: It manipulates age data to calculate age in years on 4 different planets: Mercury, Venus, Mars, Jupiter.
-    * Example Input: Age in years = 35;
-    * Example Output:
+    * Example Input: Age in years = 28;
+    * Example Output: Mercury- 113.19; Venus- 43.81; Mars- 14.45; Jupiter- 2.3;
   * Spec 4: It pulls life expectancy value from lifeexpectancy npm object based on input variable.
     * Example Input: Country: 'India', gender: male
     * Example Output: {Earth: 66.9; Mercury: 278.75 years; Venus: 107.9 years; Mars: 37.18 years; Jupiter: 5.64 years}
-  * Spec 5: It compares life expectancy value from lifeexpectancy npm object based on input variable with current age; and it returns how many Earth years left in users life if current age < expectancy age.
+  * Spec 5: It compares avg life expectancy of user demographic (as defined by input) against user age and returns difference if current age < expectancy age.
     * Example Input: Country: 'India', gender: male, age:30
-    * Example Output: 39.9 years
-  * Spec 6: It compares life expectancy value from lifeexpectancy npm object based on input variable with current age; and it returns how many years of 'borrowed time' the user is on.
+    * Example Output: 39.9 years remaining
+  * Spec 6: It compares avg life expectancy of user demographic (as defined by input) against user age and returns difference if current age > expectancy age.
     * Example Input: Country: 'India', gender: male, age:75
     * Example Output: 5.5 years
 
-<!-- 3. Integration
-  * Initial routes or index pages with all dependencies in Controller/index.html head
-  * Template/html page for ...
-  * Template/html page for ...
-  * Template/html page for ... (one for each route/integrated user story)
-  * Display...
-  * Integrate feature that...
-
-4. UX/UI
-  * Include and modify bootstrap/materialize/Sass etc.
-  * Develop custom style
-
-5. Polish
-  * Refactor minor portion of...
-  * Delete unused...
-  * Make README awesome -->
+3. With more time, a sleeker and more entertaining UI would be developed with solid voice and thematic elements.
