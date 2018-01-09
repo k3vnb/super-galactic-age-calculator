@@ -1,11 +1,11 @@
 module.exports = function(config) {
   config.set({
     basePath: '',
-    frameworks: ['jquery-3.2.1', 'jasmine', 'browserify', 'moment'],
+    frameworks: ['jquery-3.2.1', 'jasmine', 'browserify'],
     files: [
       'js/*.js',
       'spec/*-spec.js',
-      'bower_components/moment/moment.js'
+      'bower_components/moment/*.js'
     ],
     exclude: [
     ],

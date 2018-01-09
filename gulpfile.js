@@ -19,7 +19,7 @@ var lib = require('bower-files')({
     }
   }
 });
-var moment = require('moment');
+
 
 gulp.task('concatInterface', function() {
   return gulp.src(['./js/*-interface.js'])
