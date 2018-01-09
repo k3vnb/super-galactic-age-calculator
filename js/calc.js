@@ -255,7 +255,6 @@ function LifeLeft(compareArray) {
 
 LifeLeft.prototype.difference = function() {
   if (this.compareArray[0] < this.compareArray[1]) {
-    console.log("hey");
     const returnVal = this.compareArray[1] - this.compareArray[0];
     const returnMerc = returnVal / .24;
     const returnVen = returnVal / .62;

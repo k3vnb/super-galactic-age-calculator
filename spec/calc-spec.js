@@ -62,3 +62,27 @@ describe('Demographics', function() {
   });
 
 });
+describe('LifeLeft', function() {
+  it('returns difference between life expectancy and current age of user on 5 planets if user age is under life expectancy', function() {
+    const userAge = 20;
+    const userLifeEx = 80;
+    const compareArray = [userAge, userLifeEx];
+    const user1 = new LifeLeft(compareArray);
+    expect(user1.difference()).toBe("Warning! Our records indicate that, statistically, you are on borrowed time. You should have kicked it 60 years ago on Earth. You'd have been a goner 250 years ago on Mercury, and 96.7741935483871 years on Venus. You'd have breathed your last breathe 31.914893617021278 & 5.136986301369864 years ago on Mars and Jupiter, respectively, assuming you had breath to breathe. We hear its smoggy on Jupiter.");
+  });
+  it('returns difference between life expectancy and current age of user on 5 planets if user age is over life expectancy', function() {
+    const userAge = 80;
+    const userLifeEx = 70;
+    const compareArray = [userAge, userLifeEx];
+    const user1 = new LifeLeft(compareArray);
+    expect(user1.difference()).toBe("Our records indicate that, statistically, you are likely to die in 10 years. This is a part of the human condition, and indeed a pre-condition of life itself. On Venus, all other things being equal, we expect your demise in 16.129032258064516 years. Mars, 5.319148936170213 years. On Jupiter, only 0.8561643835616438 years.  To optimize existence, we'd recommend going to Mercury, where you can live sweet life for another 41.66666666666667 years. Bring sunscreen.");
+  });
+  it('returns a string if user age is equal to user life expectancy', function() {
+    const userAge = 80;
+    const userLifeEx = 80;
+    const compareArray = [userAge, userLifeEx];
+    const user1 = new LifeLeft(compareArray);
+    expect(user1.difference()).toBe("Looks like time has caught up to you, congrats on living up to you're statistical life expectancy. Try not to die, if you live longer it brings up the whole life expectancy average for the rest of us. If you do go to Mars, bring a water bottle.");
+  });
+
+});
