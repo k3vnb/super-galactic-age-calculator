@@ -191,7 +191,7 @@ var LifeLeft = exports.LifeLeft = function () {
         var returnVen = returnVal / .62;
         var returnMar = returnVal / 1.88;
         var returnJup = returnVal / 11.68;
-        return 'Warning! Our records indicate that, statistically, you are on borrowed time. You should have kicked it ' + returnVal + ' years ago on Earth. You\'d have been a goner ' + returnMerc + ' years ago on Mercury, and ' + returnVen + ' years on Venus. You\'d have breathed your last breathe ' + returnMar + '  &  ' + returnJup + ' years ago on Mars and Jupiter, respectively, assuming you had breath to breathe. We hear its smoggy on Jupiter.';
+        return 'Warning! Our records indicate that, statistically, you are on borrowed time. You should have kicked it ' + returnVal + ' years ago on Earth. You\'d have been a goner ' + returnMerc + ' years ago on Mercury, and ' + returnVen + ' years on Venus. You\'d have breathed your last breathe ' + returnMar + ' & ' + returnJup + ' years ago on Mars and Jupiter, respectively, assuming you had breath to breathe. We hear its smoggy on Jupiter.';
       } else if (this.compareArray[0] > this.compareArray[1]) {
         var _returnVal = this.compareArray[0] - this.compareArray[1];
         var _returnMerc = _returnVal / .24;

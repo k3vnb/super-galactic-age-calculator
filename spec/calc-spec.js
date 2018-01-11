@@ -1,7 +1,5 @@
-const Person = require('./../js/calc.js').personModule;
-const AgeCompare = require('./../js/calc.js').ageCompareModule;
-const Demographics = require('./../js/calc.js').demographicsModule;
-const LifeLeft = require('./../js/calc.js').lifeLeftModule;
+import { Person, AgeCompare, Demographics, LifeLeft } from './../js/calc.js';
+
 
 
 describe('Person', function() {
